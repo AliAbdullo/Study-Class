@@ -17,16 +17,9 @@ class Shaxs:
     """Shaxsning yoshini qaytaradi"""
     return yil-self.tyil
 
-class Fan:
-  """Fan nomli class"""
-  def __init__(self, nomi):
-    self.nomi=nomi
+ 
 
-  def get_nomi(self):
-     """Fanning nomini qaytaradi""" 
-     return self.nomi    
-
-class Talaba(Shaxs, Fan):
+class Talaba(Shaxs):
   """Talaba nomli voris class"""
   def __init__(self,ism, familiya, passport, tyil, idraqami):
     super().__init__(ism, familiya, passport, tyil)
@@ -42,27 +35,33 @@ class Talaba(Shaxs, Fan):
     """Talabaning bosqichini qaytaradi"""
     return self.bosqich
 
-  def fanga_yozil(self, get_nomi):
+  def fanga_yozil(self, fan):
     """Fan obectlarini qaytaradi"""
-    fanlar=f"{self.nomi}"
-    self.fanlar+=[fanlar]
+    self.fanlar+=[fan]
     
 
   def get_fanlar(self):
     """Fanlar to'plamini qaytaradi"""
     return self.fanlar
+
+  def remove_fan(self,fan):
+    """Fanlar ro'yxatidan fanni o'chirib tashlash"""
+    if fan in self.fanlar:
+      self.fanlar.remove(fan)
+    else:
+      print("Siz bu fanga yozilmagansiz")
     
-    
+class Fan:
+  """Fan nomli class"""
+  def __init__(self, nomi):
+    self.nomi=nomi
+
+  def get_nomi(self):
+     """Fanning nomini qaytaradi""" 
+     return self.nomi       
 
 
 
 tarix=Fan("Jaxon tarixi")
 matem=Fan("Matematika")
 biologiya=Fan("Botanika")
-
-
-     
-                                                                                    
-     
-     
-    
